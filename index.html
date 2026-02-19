@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder - Drag & Drop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎨 Form Builder</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary" id="previewBtn">👁️ Preview</button>
+                <button class="btn btn-danger" id="clearBtn">🗑️ Clear All</button>
+                <button class="btn btn-primary" id="saveBtn">💾 Save Form</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Toolbox Panel -->
+            <aside class="toolbox-panel">
+                <h2>📦 Field Toolbox</h2>
+                <div class="toolbox-items">
+                    <div class="toolbox-item" draggable="true" data-field-type="text">
+                        <span class="icon">📝</span>
+                        <span>Text Input</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="email">
+                        <span class="icon">📧</span>
+                        <span>Email Input</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="number">
+                        <span class="icon">🔢</span>
+                        <span>Number Input</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="tel">
+                        <span class="icon">📞</span>
+                        <span>Phone Input</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="textarea">
+                        <span class="icon">📄</span>
+                        <span>Textarea</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="checkbox">
+                        <span class="icon">☑️</span>
+                        <span>Checkbox</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="radio">
+                        <span class="icon">🔘</span>
+                        <span>Radio Button</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="select">
+                        <span class="icon">📋</span>
+                        <span>Dropdown</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="date">
+                        <span class="icon">📅</span>
+                        <span>Date Picker</span>
+                    </div>
+                    <div class="toolbox-item" draggable="true" data-field-type="file">
+                        <span class="icon">📎</span>
+                        <span>File Upload</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Form Canvas -->
+            <main class="form-canvas">
+                <div class="canvas-header">
+                    <h2>🖼️ Form Canvas</h2>
+                    <span class="field-count">Fields: <span id="fieldCount">0</span></span>
+                </div>
+                <div class="drop-zone" id="dropZone">
+                    <div class="empty-state">
+                        <div class="empty-icon">📋</div>
+                        <p>Drag and drop fields here to build your form</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Properties Panel -->
+            <aside class="properties-panel" id="propertiesPanel">
+                <h2>⚙️ Field Properties</h2>
+                <div class="properties-content" id="propertiesContent">
+                    <div class="no-selection">
+                        <p>Select a field to edit its properties</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📋 Form Preview</h2>
+                <button class="close-btn" id="closePreview">&times;</button>
+            </div>
+            <div class="modal-body" id="previewBody">
+                <form id="previewForm"></form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closePreviewBtn">Close</button>
+                <button class="btn btn-primary" id="exportBtn">📥 Export HTML</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
